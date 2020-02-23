@@ -5,15 +5,17 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Logging library with included dependencies</Description>
-    <Copyright>Copyright 2020 Aragas</Copyright>
-    <PackageProjectUrl>https://github.com/Aragas/Aragas.QServer.Logging</PackageProjectUrl>
+    
+    <Authors>Aragas</Authors>
+    <Company>Aragas</Company>
+    <Copyright>2020 Aragas</Copyright>
     <RepositoryUrl>https://github.com/Aragas/Aragas.QServer.Logging</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageIconUrl />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageDescription>Logging library with included dependencies!</PackageDescription>
+    <PackageIcon>spiral.png</PackageIcon>
+    <PackageIconUrl>https://github.com/Aragas/Aragas.QServer.Logging/raw/master/spiral.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/Aragas/Aragas.QServer.Logging</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,11 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="LICENSE">
+    <None Include="spiral.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
