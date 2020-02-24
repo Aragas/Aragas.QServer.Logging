@@ -17,13 +17,15 @@ jobs:
         dotnet-version: 3.1.100
         source-url: https://nuget.pkg.github.com/Aragas/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GHPackagesToken}}
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    - name: Build the project
+    - name: Build
       run: dotnet build --configuration Release
       
-    - name: Create the package
-      run: dotnet pack --configuration Release
+    - name: Pack
+      run: dotnet pack --configuration Release -o "./packages"
       
-    - name: Publish the package to GPR
-      run: dotnet nuget push bin/Release/*.nupkg
+    - name: Publish
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      run: dotnet nuget push -s https://nuget.pkg.github.com/Aragas -k $NUGET_AUTH_TOKEN ./packages/*.nupkg
