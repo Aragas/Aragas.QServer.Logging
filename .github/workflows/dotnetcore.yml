@@ -17,7 +17,7 @@ jobs:
         dotnet-version: 3.1.100
         source-url: https://nuget.pkg.github.com/Aragas/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{secrets.GHPackagesToken}}
 
     - name: Build the project
       run: dotnet build --configuration Release
