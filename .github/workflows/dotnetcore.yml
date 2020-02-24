@@ -25,7 +25,13 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release -o "./packages"
       
-    - name: Publish
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: dotnet nuget push -s https://nuget.pkg.github.com/Aragas -k $NUGET_AUTH_TOKEN ./packages/*.nupkg
+#    - name: Publish
+#      run: dotnet nuget push packages/*.nupkg
+
+    - name: Publish (workaround)
+      run: |
+           for f in ./packages/*.nupkg
+           do
+             curl -vX PUT -u "vslee:${{secrets.GITHUB_TOKEN}}" -F package=@$f https://nuget.pkg.github.com/Aragas/
+           done
+      shell: bash
