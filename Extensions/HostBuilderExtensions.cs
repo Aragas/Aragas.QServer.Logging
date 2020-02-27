@@ -6,8 +6,9 @@ namespace Microsoft.Extensions.Hosting
 {
     public static class HostBuilderExtensions
     {
-        public static IHostBuilder UseSerilog(this IHostBuilder hostBuilder) =>
-            hostBuilder.ConfigureLogging((hostContext, logging) =>
+        public static IHostBuilder UseLogging(this IHostBuilder hostBuilder) => hostBuilder
+            .UseSerilog()
+            .ConfigureLogging((hostContext, logging) =>
             {
                 logging.AddSerilog(dispose: false);
 #if DEBUG
