@@ -6,9 +6,15 @@ on:
       - master
   repository_dispatch:
     types:
-      - build
+      - build-from-external
 
 jobs:
+  build-from-external:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{github.event.client_payload.github.repository}}
+        
   build:
     runs-on: ubuntu-latest
     steps:
@@ -41,10 +47,10 @@ jobs:
            done
       shell: bash
 
-    - name: Trigger Aragas.QServer.Metrics
+    - name: Trigger Aragas.QServer.Hosting
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{secrets.GITHUB_TOKEN_REPO}}
-        repository: Aragas/Aragas.QServer.Metrics
-        event-type: build
+        repository: Aragas/Aragas.QServer.Hosting
+        event-type: build-from-external
         client-payload: '{"github": ${{ toJson(github) }}}'
