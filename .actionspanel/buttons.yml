@@ -1,4 +1,0 @@
-buttons:
-  - title: Run NuGet
-    action: "run_nuget"
-    description: Run NuGet deploy
