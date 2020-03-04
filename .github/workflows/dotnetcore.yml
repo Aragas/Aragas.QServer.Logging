@@ -41,10 +41,10 @@ jobs:
            done
       shell: bash
 
-    - name: Trigger Aragas.QServer.Health
+    - name: Trigger Aragas.QServer.Metrics
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{secrets.GITHUB_TOKEN_REPO}}
-        repository: Aragas/Aragas.QServer.Health
+        repository: Aragas/Aragas.QServer.Metrics
         event-type: build
-        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+        client-payload: '{"github": ${{ toJson(github) }}}'
