@@ -17,13 +17,14 @@
     <PackageIcon>spiral.png</PackageIcon>
     <PackageIconUrl>https://github.com/Aragas/Aragas.QServer.Logging/raw/master/spiral.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/Aragas/Aragas.QServer.Logging</PackageProjectUrl>
-  </PropertyGroup>
-	 
-  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>    
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+	 
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>	 
   <ItemGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
